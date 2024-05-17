@@ -6,16 +6,17 @@ namespace MySeleniumFramework.Elements
 {
     public class ElementVisibility
     {
-        private readonly IWebElement _webElement;
+        internal BaseElement Element { get; }
 
-        internal ElementVisibility(IWebElement element)
+
+        internal ElementVisibility(BaseElement element)
         {
-            _webElement = element;
+            Element = element;
         }
 
-        public bool IsDisplayed() => _webElement.Displayed;
-        public bool IsEnabled() => _webElement.Enabled;
-        public bool IsExist() => 
-        public bool IsNotDisplayed() =>
+        public bool IsDisplayed() => Element.GetWebElement().Displayed;
+        public bool IsEnabled() => Element.GetWebElement().Enabled;
+        public bool IsExistInDOM() => Element.SameElementsCount() > 0;
+        public bool IsNotExist() => Element.SameElementsCount() == 0;
     }
 }

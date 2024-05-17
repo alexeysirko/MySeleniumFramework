@@ -12,7 +12,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="PageObjects\" />
     <Folder Include="Resources\" />
   </ItemGroup>
 

@@ -2,6 +2,7 @@
 using MySeleniumFramework.Elements.ElementTypes;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
+using System.Xml.Linq;
 
 namespace MySeleniumFramework.Elements
 {
@@ -11,18 +12,25 @@ namespace MySeleniumFramework.Elements
         private static string ExpireMessage(By locator, string waitType, int totalSeconds)
             => $"Element with locator '{locator}' wasn't in '{waitType}' state after '{totalSeconds}' seconds";
 
-        public static bool WaitForDisplayed(this BaseElement element, TimeSpan timeout)
+        public static bool WaitForDisplayed(this ElementVisibility visibility, TimeSpan timeout)
         {
             WebDriverWait webDriverWait = new(_driver, timeout);
-            webDriverWait.Message = ExpireMessage(element.Locator, "Displayed", timeout.Seconds);
-            return webDriverWait.Until(_driver => element.Visibility.IsDisplayed());
+            webDriverWait.Message = ExpireMessage(visibility.Element.Locator, "Displayed", timeout.Seconds);
+            return webDriverWait.Until(_driver => visibility.IsDisplayed());
         }
 
-        public static bool WaitForDisappeared(this BaseElement element, TimeSpan timeout)
+        public static bool WaitForDisappeared(this ElementVisibility visibility, TimeSpan timeout)
         {
             WebDriverWait webDriverWait = new(_driver, timeout);
-            webDriverWait.Message = ExpireMessage(element.Locator, "Displayed", timeout.Seconds);
-            return webDriverWait.Until(_driver => element.Visibility.IsDisplayed());
+            webDriverWait.Message = ExpireMessage(visibility.Element.Locator, "Displayed", timeout.Seconds);
+            return webDriverWait.Until(_driver => !visibility.IsDisplayed());
+        }
+
+        public static bool WaitForNotExist(this ElementVisibility visibility, TimeSpan timeout)
+        {
+            WebDriverWait webDriverWait = new(_driver, timeout);
+            webDriverWait.Message = ExpireMessage(visibility.Element.Locator, "Displayed", timeout.Seconds);
+            return webDriverWait.Until(_driver => !visibility.IsNotExist());
         }
     }
 }
