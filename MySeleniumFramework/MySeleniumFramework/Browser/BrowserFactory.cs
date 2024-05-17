@@ -39,9 +39,12 @@ namespace MySeleniumFramework.Browser
 
         private static IWebDriver InitDriverByType(string browserName, DriverOptions options = null)
         {
+            ChromeOptions chromeOptions = new();
+            chromeOptions.PageLoadStrategy = PageLoadStrategy.Eager;
+
             return browserName switch
             {
-                "chrome" => new ChromeDriver(),
+                "chrome" => new ChromeDriver(chromeOptions),
                 "firefox" => new FirefoxDriver(),
                 "edge" => new EdgeDriver(),
                 _ => throw new PlatformNotSupportedException($"Browser type '{browserName}' is not supported. Please pick another browser type in your config.")
