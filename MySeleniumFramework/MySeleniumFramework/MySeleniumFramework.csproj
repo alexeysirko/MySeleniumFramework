@@ -10,4 +10,8 @@
     <PackageReference Include="Selenium.WebDriver" Version="4.21.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Resources\" />
+  </ItemGroup>
+
 </Project>

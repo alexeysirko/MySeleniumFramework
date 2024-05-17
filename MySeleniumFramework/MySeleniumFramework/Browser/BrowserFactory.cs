@@ -1,12 +1,12 @@
-﻿using OpenQA.Selenium;
+﻿using MySeleniumFramework.Configurations;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Edge;
 using OpenQA.Selenium.Firefox;
-using OpenQA.Selenium.IE;
 
-namespace MySeleniumFramework
+namespace MySeleniumFramework.Browser
 {
-    public class DriverFactory
+    public class BrowserFactory
     {
         private static ThreadLocal<IWebDriver> driverThreadLocal = new ThreadLocal<IWebDriver>();
 
@@ -32,23 +32,20 @@ namespace MySeleniumFramework
 
         private static IWebDriver InitDriver()
         {
-            throw new NotImplementedException();
-            string browserTypeFromConfig = null; //TO DO: Implement getting information from configuration
-            string browserType = browserTypeFromConfig.ToLower();            
+            BrowserSettings browserSettings = new();
+            string browserType = browserSettings.BrowserName.ToLower();
             return InitDriverByType(browserType);
         }
-        
-        private static IWebDriver InitDriverByType(string browserType, DriverOptions options = null)
+
+        private static IWebDriver InitDriverByType(string browserName, DriverOptions options = null)
         {
-            return browserType switch
+            return browserName switch
             {
                 "chrome" => new ChromeDriver(),
                 "firefox" => new FirefoxDriver(),
                 "edge" => new EdgeDriver(),
-                _ => throw new PlatformNotSupportedException($"Browser type '{browserType}' is not supported. Please pick another browser type in your config.")
+                _ => throw new PlatformNotSupportedException($"Browser type '{browserName}' is not supported. Please pick another browser type in your config.")
             };
         }
-
-        
     }
 }
