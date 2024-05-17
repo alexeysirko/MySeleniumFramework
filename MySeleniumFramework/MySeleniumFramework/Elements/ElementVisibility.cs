@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using MySeleniumFramework.Elements.ElementTypes;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 
 namespace MySeleniumFramework.Elements
@@ -13,6 +14,8 @@ namespace MySeleniumFramework.Elements
         }
 
         public bool IsDisplayed() => _webElement.Displayed;
-        public bool IsEnabled(IWebElement element) => _webElement.Enabled;
+        public bool IsEnabled() => _webElement.Enabled;
+        public bool IsExist() => 
+        public bool IsNotDisplayed() =>
     }
 }

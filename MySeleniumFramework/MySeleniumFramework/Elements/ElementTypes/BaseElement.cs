@@ -5,8 +5,8 @@ namespace MySeleniumFramework.Elements.ElementTypes
 {
     public abstract class BaseElement
     {
-        public By Locator { get; }
-        public IWebElement Element { get; init; }
+        internal By Locator { get; private set; }
+        public IWebElement Element { get; private set; }
         private IWebDriver _driver = BrowserFactory.GetDriver();
 
 
@@ -16,10 +16,10 @@ namespace MySeleniumFramework.Elements.ElementTypes
             Element = GetWebElement();
         }
 
-
         public IWebElement GetWebElement() => _driver.FindElement(Locator);
-        public ElementVisibility Visibility => new ElementVisibility(Element);
-        public string GetText() => Element.Text;
-        public void Click() => Element.Click();
+        public ElementVisibility Visibility => new ElementVisibility(GetWebElement());
+        public ElementJsActions JsActions => new ElementJsActions(GetWebElement());
+        public string GetText() => GetWebElement().Text;
+        public void Click() => GetWebElement().Click();
     }
 }

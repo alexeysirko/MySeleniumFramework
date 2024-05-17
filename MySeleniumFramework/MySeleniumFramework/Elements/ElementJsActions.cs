@@ -2,12 +2,12 @@
 
 namespace MySeleniumFramework.Elements
 {
-    internal class JsActions
+    public class ElementJsActions
     {
         private readonly IWebElement _webElement;
 
 
-        internal JsActions(IWebElement element)
+        internal ElementJsActions(IWebElement element)
         {
             _webElement = element;
         }
