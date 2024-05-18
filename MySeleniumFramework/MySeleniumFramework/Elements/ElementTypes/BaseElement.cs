@@ -1,12 +1,14 @@
 ﻿using MySeleniumFramework.Browser;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Interactions;
 
 namespace MySeleniumFramework.Elements.ElementTypes
 {
     public abstract class BaseElement
     {
-        internal By Locator { get; private set; }
+        public Actions Actions { get => new Actions(_driver); }
         public IWebElement Element { get => GetWebElement(); }
+        internal By Locator { get; private set; }
         private IWebDriver _driver = BrowserFactory.GetDriver();
 
 
@@ -22,7 +24,7 @@ namespace MySeleniumFramework.Elements.ElementTypes
             new ElementJsActions(element).HighlightElement();
             return element;
         }
-
+    
         public ElementVisibility Visibility => new ElementVisibility(this);
         public ElementJsActions JsActions => new ElementJsActions(GetWebElement());
         public int SameElementsCount() => _driver.FindElements(Locator).Count;
