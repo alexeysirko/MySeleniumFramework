@@ -20,7 +20,7 @@ namespace BsuirExample.PageObjects
         private TextBox _searchTextBox = new TextBox(By.XPath("//*[@class='search-input']"));
         private Button _searchButton = new Button(By.XPath("//*[@name='search'][@type='submit']"));
         private Button _achivementsButton = new Button(By.XPath("//a[contains(@href,'achievements')]"));
-
+        private Button _mailButton = new Button(By.XPath("//*[contains(@class,'social-icon-webmail')]"));
 
         public BsuirMainPage() : base(new ImageLabel(By.ClassName("gallery")))
         {
@@ -47,5 +47,6 @@ namespace BsuirExample.PageObjects
         internal void TypeTextToSearchTextBox(string text) => _searchTextBox.TypeText(text);
         internal void ClickSearchButton() => _searchButton.Click();
         internal void ClickAchivementsButton() => _achivementsButton.Click();
+        internal void ClickMailButton() => _mailButton.Click();
     }
 }

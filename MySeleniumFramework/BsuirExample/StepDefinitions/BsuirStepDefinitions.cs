@@ -11,6 +11,7 @@ namespace BsuirExample.StepDefinitions
         private SciencePage _sciencePage = new();
         private SearchPage _searchPage = new();
         private AchievementsPage _achievementsPage = new();
+        private RegistrationPage _registrationPage = new();
         private const string LOGO_TEXT_KEY = nameof(LOGO_TEXT_KEY);
 
         private readonly ScenarioContext _scenarioContext;
@@ -180,6 +181,24 @@ namespace BsuirExample.StepDefinitions
         public void CheckLinks()
         {
             _achievementsPage.CheckLinksTexts();
+        }
+
+        [Given(@"Нажимаю на иконку почты")]
+        public void ClickMailBtn()
+        {
+            _mainPage.ClickMailButton();
+        }
+
+        [When(@"Я ввожу логин ""([^""]*)"" и пароль ""([^""]*)""")]
+        public void EnterCreds(string login, string password)
+        {
+            _registrationPage.EnterCredentials(login, password);
+        }
+
+        [Then(@"Данные отображаются на странице")]
+        public void SubmitDisplayed()
+        {
+            _registrationPage.CheckSubmit();
         }
     }
 }
