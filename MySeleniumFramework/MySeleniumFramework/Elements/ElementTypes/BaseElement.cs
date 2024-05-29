@@ -30,5 +30,9 @@ namespace MySeleniumFramework.Elements.ElementTypes
         public int SameElementsCount() => _driver.FindElements(Locator).Count;
         public string GetText() => GetWebElement().Text;
         public void Click() => GetWebElement().Click();
+        public string GetValue()
+        {
+            return GetWebElement().GetCssValue("value");
+        }
     }
 }

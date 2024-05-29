@@ -6,6 +6,11 @@ namespace MySeleniumFramework.Elements.ElementTypes
     {
         public TextBox(By locator) : base(locator)
         {
+        }       
+
+        public void TypeText(string text)
+        {
+            GetWebElement().SendKeys(text);
         }
     }
 }

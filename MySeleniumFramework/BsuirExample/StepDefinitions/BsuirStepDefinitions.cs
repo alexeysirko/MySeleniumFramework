@@ -9,6 +9,7 @@ namespace BsuirExample.StepDefinitions
     {
         private BsuirMainPage _mainPage = new();
         private SciencePage _sciencePage = new();
+        private SearchPage _searchPage = new();
         private const string LOGO_TEXT_KEY = nameof(LOGO_TEXT_KEY);
 
         private readonly ScenarioContext _scenarioContext;
@@ -24,7 +25,7 @@ namespace BsuirExample.StepDefinitions
         public void GivenОткрытаСтраницаБГУИР()
         {
             BrowserFactory.GetDriver().Navigate().GoToUrl("https://www.bsuir.by/");
-            new BrowserJsActions().StopPageLoading(TimeSpan.FromSeconds(4));
+            new BrowserJsActions().StopPageLoading(TimeSpan.FromSeconds(2));
         }
 
         [Then(@"Отображается галерея основной страницы БГУИР")]
@@ -140,6 +141,32 @@ namespace BsuirExample.StepDefinitions
                 _mainPage.ClickArrowRight();
                 Thread.Sleep(300);
             }
+        }
+
+        [Given(@"Ввожу текст ""([^""]*)"" в поисковую строку")]
+        public void InputText(string text)
+        {
+            _mainPage.TypeTextToSearchTextBox(text);
+        }
+
+        [When(@"Нажимаю кнопку поиска")]
+        public void SearchClick()
+        {
+            _mainPage.ClickSearchButton();
+        }
+
+        [Then("Страница Поиска открыта")]
+        public void IsSearchOpened()
+        {
+            Assert.That(_searchPage.WaitForOpened(TimeSpan.FromSeconds(5)));
+        }
+
+        [Then("Введенный текст отображается в новой строке поиска")]
+        public void IsTextDisplayed()
+        {
+            string expectedText = "Расписание";
+            string actualText = _searchPage.GetSearchBoxValue();
+            Assert.That(actualText, Is.EqualTo(expectedText));
         }
     }
 }

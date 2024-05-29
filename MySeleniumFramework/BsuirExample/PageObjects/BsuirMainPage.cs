@@ -17,6 +17,8 @@ namespace BsuirExample.PageObjects
         private ImageLabel _headerLogo = new ImageLabel(By.XPath("//*[contains(@class,'header')]//*[contains(@class,'logo-img')]"));
         private TextBox _searchBox = new TextBox(By.XPath("//input[@class='search-input']"));
         private Button _arrowRight = new Button(By.XPath("//*[@u='arrowright']"));
+        private TextBox _searchTextBox = new TextBox(By.XPath("//*[@class='search-input']"));
+        private Button _searchButton = new Button(By.XPath("//*[@name='search'][@type='submit']"));
 
         public BsuirMainPage() : base(new ImageLabel(By.ClassName("gallery")))
         {
@@ -40,5 +42,7 @@ namespace BsuirExample.PageObjects
         internal bool IsContactButtonDisplayed() => _contactUs.Visibility.IsDisplayed();
         internal void ClickEngLanguageButton() => _engLanguage.Click();
         internal bool IsHeaderLogoDisplayed() => _headerLogo.Visibility.IsDisplayed();
+        internal void TypeTextToSearchTextBox(string text) => _searchTextBox.TypeText(text);
+        internal void ClickSearchButton() => _searchButton.Click();
     }
 }
