@@ -35,7 +35,8 @@ namespace BsuirExample.Features
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "SimulationFunctions", null, ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "SimulationFunctions", "Как студент БГУИР\r\nЯ хочу пользоваться всеми элементами веб-сайта\r\nЧтобы получить" +
+                    " доступ к необходимой информации университета", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -75,12 +76,12 @@ namespace BsuirExample.Features
         
         public virtual void FeatureBackground()
         {
-#line 3
+#line 6
 #line hidden
-#line 4
+#line 7
 testRunner.Given("Открыта страница БГУИР", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 5
+#line 8
 testRunner.Then("Отображается галерея основной страницы БГУИР", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
         }
@@ -94,7 +95,7 @@ testRunner.Then("Отображается галерея основной стр
                     "Click"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Функция Кликнуть на элемент", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 8
+#line 11
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -114,16 +115,16 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 3
+#line 6
 this.FeatureBackground();
 #line hidden
-#line 9
+#line 12
 testRunner.Given("Кликами пролистаны слайды на главной странице", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 10
+#line 13
 testRunner.When("Нажатие на кнопку \"Наука\" из меню", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 11
+#line 14
 testRunner.Then("Отображается заголовок страницы Наука", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -139,7 +140,7 @@ testRunner.Then("Отображается заголовок страницы Н
                     "GetText"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Функция Получить текст элемента", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 14
+#line 17
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -159,23 +160,23 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 3
+#line 6
 this.FeatureBackground();
 #line hidden
-#line 15
+#line 18
 testRunner.Given("Получен текст логотипа", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 16
+#line 19
 testRunner.Then("Текст логотипа соотвествует \"Белорусский государственный университет  информатики" +
                         " и радиоэлектроники\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 18
+#line 21
 testRunner.When("Изменить язык страницы на английский", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 19
+#line 22
  testRunner.And("Получить текст логотипа ещё раз", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 20
+#line 23
 testRunner.Then("Текст логотипа соотвествует \"BELARUSIAN STATE UNIVERSITY OF INFORMATICS AND RADIO" +
                         "ELECTRONICS\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -192,7 +193,7 @@ testRunner.Then("Текст логотипа соотвествует \"BELARUSI
                     "Scroll"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Функция Прокрутка до элемента", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 23
+#line 26
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -212,19 +213,19 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 3
+#line 6
 this.FeatureBackground();
 #line hidden
-#line 24
+#line 27
 testRunner.Given("Прокрутить страницу БГУИР до футера", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 25
+#line 28
 testRunner.Then("Кнопка Связаться с нами отображается на экране", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 27
+#line 30
 testRunner.When("Прокрутить страницу БГУИР до хедера", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 28
+#line 31
 testRunner.Then("Основной логотип БГУИР отображается на экране", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -240,7 +241,7 @@ testRunner.Then("Основной логотип БГУИР отображает
                     "HoverMouse"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Функция наведения мыши на элемент", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 31
+#line 34
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -260,10 +261,10 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 3
+#line 6
 this.FeatureBackground();
 #line hidden
-#line 32
+#line 35
 testRunner.When("Наведение мыши на соответсвущую опцию из меню", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
                 TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
@@ -271,23 +272,23 @@ testRunner.When("Наведение мыши на соответсвущую о�
                             "Опция меню"});
                 table1.AddRow(new string[] {
                             "Университет",
-                            "Общая информация"});
+                            "Общая информация, Совет университета, Фотогалерея, Документы"});
                 table1.AddRow(new string[] {
                             "Образование",
-                            "Специальности"});
+                            "Специальности, Магистратура, Библиотека, Оплата  обучения"});
                 table1.AddRow(new string[] {
                             "Наука",
-                            "Лаборатории и центры"});
+                            "Лаборатории и центры, Научные школы, Научные мероприятия"});
                 table1.AddRow(new string[] {
                             "Молодёжная политика",
-                            "События года"});
+                            "События года, Структура управления, Спорт в университете, Культурная жизнь"});
                 table1.AddRow(new string[] {
                             "Международное сотрудничество",
-                            "Иностранным гражданам"});
+                            "Иностранным гражданам, Почётные доктора БГУИР, Межвузовское сотрудничество"});
                 table1.AddRow(new string[] {
                             "Контакты",
-                            "Обратная связь"});
-#line 33
+                            "Обратная связь, Приемная комиссия, Схема корпусов, Телефонный справочник"});
+#line 36
 testRunner.Then("В выпадающем меню отображается соответсвующая опция", ((string)(null)), table1, "Then ");
 #line hidden
             }
@@ -303,7 +304,7 @@ testRunner.Then("В выпадающем меню отображается со�
                     "Delete"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Функция удаления элемента", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 43
+#line 46
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -323,13 +324,13 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 3
+#line 6
 this.FeatureBackground();
 #line hidden
-#line 44
+#line 47
 testRunner.When("Удаление среднего хедера страницы", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 45
+#line 48
 testRunner.Then("Главный логотип и строка поиска ичесзли со страницы", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }

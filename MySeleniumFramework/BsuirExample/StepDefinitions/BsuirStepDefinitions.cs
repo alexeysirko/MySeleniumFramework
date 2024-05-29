@@ -1,7 +1,6 @@
 using BsuirExample.PageObjects;
 using MySeleniumFramework.Browser;
 using NUnit.Framework;
-using TechTalk.SpecFlow;
 
 namespace BsuirExample.StepDefinitions
 {
@@ -71,7 +70,7 @@ namespace BsuirExample.StepDefinitions
         [Given(@"Прокрутить страницу БГУИР до футера")]
         public void ScrollToFooter()
         {
-            _mainPage.ScrollPageToFooter();            
+            _mainPage.ScrollPageToFooter();
         }
 
         [When(@"Прокрутить страницу БГУИР до хедера")]
@@ -104,10 +103,16 @@ namespace BsuirExample.StepDefinitions
             foreach (var row in table.Rows)
             {
                 string buttonName = row["Название кнопки"];
-                string expectedOption = row["Опция меню"];
+                string expectedOptions = row["Опция меню"];
+
                 _mainPage.HoverMouseToMenuButton(buttonName);
-                Assert.That(_mainPage.IsOptionWithTextDisplayed(expectedOption));
-                Thread.Sleep(1200);
+                string[] splittedOptions = expectedOptions.Split(',', StringSplitOptions.TrimEntries);
+                foreach (string expectedOption in splittedOptions)
+                {
+                    Assert.That(_mainPage.IsOptionWithTextDisplayed(expectedOption));
+                    Thread.Sleep(100);
+                }
+                Thread.Sleep(800);
             }
         }
 
