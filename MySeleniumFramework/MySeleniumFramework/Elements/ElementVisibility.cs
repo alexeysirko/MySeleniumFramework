@@ -1,6 +1,4 @@
 ﻿using MySeleniumFramework.Elements.ElementTypes;
-using OpenQA.Selenium;
-using OpenQA.Selenium.Support.UI;
 
 namespace MySeleniumFramework.Elements
 {

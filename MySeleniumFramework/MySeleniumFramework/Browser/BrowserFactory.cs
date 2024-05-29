@@ -8,24 +8,24 @@ namespace MySeleniumFramework.Browser
 {
     public class BrowserFactory
     {
-        private static ThreadLocal<IWebDriver> driverThreadLocal = new ThreadLocal<IWebDriver>();
+        private static ThreadLocal<IWebDriver> _driverThreadLocal = new ThreadLocal<IWebDriver>();
 
 
         public static IWebDriver GetDriver()
         {
-            if (driverThreadLocal.Value == null)
+            if (_driverThreadLocal.Value == null)
             {
-                driverThreadLocal.Value = InitDriver();
+                _driverThreadLocal.Value = InitDriver();
             }
-            return driverThreadLocal.Value;
+            return _driverThreadLocal.Value;
         }
 
         public static void QuitBrowser()
         {
-            if (driverThreadLocal.Value != null)
+            if (_driverThreadLocal.Value != null)
             {
-                driverThreadLocal.Value.Quit();
-                driverThreadLocal.Value = null;
+                _driverThreadLocal.Value.Quit();
+                _driverThreadLocal.Value = null;
             }
         }
 
