@@ -10,6 +10,7 @@ namespace BsuirExample.StepDefinitions
         private BsuirMainPage _mainPage = new();
         private SciencePage _sciencePage = new();
         private SearchPage _searchPage = new();
+        private AchievementsPage _achievementsPage = new();
         private const string LOGO_TEXT_KEY = nameof(LOGO_TEXT_KEY);
 
         private readonly ScenarioContext _scenarioContext;
@@ -155,18 +156,30 @@ namespace BsuirExample.StepDefinitions
             _mainPage.ClickSearchButton();
         }
 
-        [Then("Страница Поиска открыта")]
+        [Then(@"Страница Поиска открыта")]
         public void IsSearchOpened()
         {
             Assert.That(_searchPage.WaitForOpened(TimeSpan.FromSeconds(5)));
         }
 
-        [Then("Введенный текст отображается в новой строке поиска")]
+        [Then(@"Введенный текст отображается в новой строке поиска")]
         public void IsTextDisplayed()
         {
             string expectedText = "Расписание";
             string actualText = _searchPage.GetSearchBoxValue();
             Assert.That(actualText, Is.EqualTo(expectedText));
+        }
+
+        [When(@"Я перехожу на страницу Достижений")]
+        public void GoToAchievementesPage()
+        {
+            _mainPage.ClickAchivementsButton();
+        }
+
+        [Then(@"На странице достижений отображается множество ссылок")]
+        public void CheckLinks()
+        {
+            _achievementsPage.CheckLinksTexts();
         }
     }
 }

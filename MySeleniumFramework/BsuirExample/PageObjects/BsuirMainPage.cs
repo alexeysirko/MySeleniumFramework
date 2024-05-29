@@ -19,6 +19,8 @@ namespace BsuirExample.PageObjects
         private Button _arrowRight = new Button(By.XPath("//*[@u='arrowright']"));
         private TextBox _searchTextBox = new TextBox(By.XPath("//*[@class='search-input']"));
         private Button _searchButton = new Button(By.XPath("//*[@name='search'][@type='submit']"));
+        private Button _achivementsButton = new Button(By.XPath("//a[contains(@href,'achievements')]"));
+
 
         public BsuirMainPage() : base(new ImageLabel(By.ClassName("gallery")))
         {
@@ -44,5 +46,6 @@ namespace BsuirExample.PageObjects
         internal bool IsHeaderLogoDisplayed() => _headerLogo.Visibility.IsDisplayed();
         internal void TypeTextToSearchTextBox(string text) => _searchTextBox.TypeText(text);
         internal void ClickSearchButton() => _searchButton.Click();
+        internal void ClickAchivementsButton() => _achivementsButton.Click();
     }
 }
