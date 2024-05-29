@@ -166,6 +166,7 @@ namespace BsuirExample.StepDefinitions
         [Then(@"Введенный текст отображается в новой строке поиска")]
         public void IsTextDisplayed()
         {
+            Thread.Sleep(800);
             string expectedText = "Расписание";
             string actualText = _searchPage.GetSearchBoxValue();
             Assert.That(actualText, Is.EqualTo(expectedText));
