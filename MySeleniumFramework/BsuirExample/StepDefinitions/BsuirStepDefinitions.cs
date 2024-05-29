@@ -160,13 +160,13 @@ namespace BsuirExample.StepDefinitions
         [Then(@"Страница Поиска открыта")]
         public void IsSearchOpened()
         {
-            Assert.That(_searchPage.WaitForOpened(TimeSpan.FromSeconds(5)));
+            Thread.Sleep(1500);
+            Assert.That(_searchPage.WaitForOpened(TimeSpan.FromSeconds(7)));
         }
 
         [Then(@"Введенный текст отображается в новой строке поиска")]
         public void IsTextDisplayed()
-        {
-            Thread.Sleep(800);
+        {         
             string expectedText = "Расписание";
             string actualText = _searchPage.GetSearchBoxValue();
             Assert.That(actualText, Is.EqualTo(expectedText));

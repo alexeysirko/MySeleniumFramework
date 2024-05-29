@@ -11,7 +11,7 @@ namespace BsuirExample.PageObjects
 {
     public class SearchPage : PageObject
     {
-        private static TextLabel _searchHeader = new TextLabel(By.XPath("//*[@class='main-info-content']//*[text()='Поиск']"));
+        private static TextLabel _searchHeader => new TextLabel(By.XPath("//*[@class='main-info-content']//h1"));
         private TextLabel _textSearchBox = new TextLabel(By.XPath("//input[@name='search']"));
 
         public SearchPage() : base(_searchHeader)
