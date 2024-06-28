@@ -20,8 +20,7 @@ namespace BsuirExample.PageObjects
 
         public string GetSearchBoxValue()
         {
-            _textSearchBox.GetValue();
-            return "Расписание";
+            return _textSearchBox.GetValue();           
         }
     }
 }

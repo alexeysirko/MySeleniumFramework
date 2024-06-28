@@ -113,9 +113,7 @@ namespace BsuirExample.StepDefinitions
                 foreach (string expectedOption in splittedOptions)
                 {
                     Assert.That(_mainPage.IsOptionWithTextDisplayed(expectedOption));
-                    Thread.Sleep(100);
                 }
-                Thread.Sleep(800);
             }
         }
 
